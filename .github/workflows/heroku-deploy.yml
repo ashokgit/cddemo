@@ -19,7 +19,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: docker
           push: true
           dockerfile: ./Dockerfile   # Specify the path to your Dockerfile here
           tags: ashokpoudel/cddemo:latest
