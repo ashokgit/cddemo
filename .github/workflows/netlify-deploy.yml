@@ -16,6 +16,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
@@ -23,19 +24,7 @@ jobs:
           push: true
           dockerfile: ./Dockerfile   # Specify the path to your Dockerfile here
           tags: ashokpoudel/cddemo:latest
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: ashokpoudel/cddemo:latest
+
       - name: Login to Netlify
         uses: netlify/actions/cli@master
         with:
