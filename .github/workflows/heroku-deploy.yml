@@ -19,7 +19,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./app
           push: true
           tags: ashokpoudel/cddemo:latest
   deploy:
