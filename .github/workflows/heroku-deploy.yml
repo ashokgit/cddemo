@@ -38,4 +38,6 @@ jobs:
       - name: Set config variables
         run: heroku config:set -a urlscrapper-demo DOCKER_IMAGE=ashokpoudel/cddemo
       - name: Deploy to Heroku
-        run: heroku container:release web -a urlscrapper-demo
+        run: |
+            heroku git:remote -a urlscrapper-demo
+            git push heroku HEAD:main --force
