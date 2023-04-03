@@ -27,6 +27,7 @@ jobs:
           dockerfile: ./Dockerfile   # Specify the path to your Dockerfile here
           tags: ashokpoudel/cddemo:latest
   deploy:
+    needs: build  # Specifies that the `deploy` job depends on the `build` job
     runs-on: ubuntu-latest
 
     steps:
